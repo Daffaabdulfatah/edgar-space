@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ShoppingCart, Star } from 'lucide-react';
+import { ShoppingCart } from 'lucide-react';
 import { formatRupiah } from '@/libs/utils';
 import { getImageUrl } from '@/libs/api';
 import { useCart } from '@/context/CartContext';
@@ -17,9 +17,7 @@ export default function ProductCard({ product }) {
     price = 0, 
     stock = 10,
     category = '',
-    thumbnail = '', 
-    rating = 4.8, 
-    reviewsCount = 42 
+    thumbnail = ''
   } = product;
   
   const photoUrl = getImageUrl(thumbnail, slug);
@@ -72,19 +70,13 @@ export default function ProductCard({ product }) {
               {name}
             </Link>
           </h3>
-          
-          <div className="mt-1.5 font-sans text-xs sm:text-sm font-bold text-charcoal tracking-tight">
-            {formatRupiah(price)}
-          </div>
         </div>
 
-        {/* Rating Star + Cart Button */}
+        {/* Footer: Price + Cart Button */}
         <div className="mt-3 pt-2.5 border-t border-light-beige/70 flex items-center justify-between">
-          <div className="flex items-center space-x-1 text-[11px] text-warm-gray">
-            <Star className="w-3.5 h-3.5 fill-amber-400 stroke-amber-400" />
-            <span className="font-semibold text-charcoal">{rating}</span>
-            <span>({reviewsCount})</span>
-          </div>
+          <span className="font-sans text-xs sm:text-sm font-bold text-charcoal tracking-tight">
+            {formatRupiah(price)}
+          </span>
 
           <button
             type="button"

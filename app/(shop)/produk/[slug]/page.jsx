@@ -11,7 +11,6 @@ import { useCart } from '@/context/CartContext';
 import { fetchApi, getImageUrl } from '@/libs/api';
 import { formatRupiah } from '@/libs/utils';
 import { 
-  Star, 
   Minus, 
   Plus, 
   ShoppingBag, 
@@ -248,17 +247,6 @@ export default function ProductDetailPage() {
                 <h1 className="font-serif text-3xl sm:text-4xl text-charcoal font-normal leading-tight">
                   {product.name}
                 </h1>
-
-                {/* Rating & Review Count */}
-                <div className="flex items-center space-x-2 mt-3 text-xs">
-                  <div className="flex items-center text-amber-500">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-amber-400 stroke-amber-400" />
-                    ))}
-                  </div>
-                  <span className="font-bold text-charcoal">4.8</span>
-                  <span className="text-warm-gray">(120 ulasan)</span>
-                </div>
 
                 {/* Price */}
                 <div className="mt-4 pt-4 border-t border-light-beige">
