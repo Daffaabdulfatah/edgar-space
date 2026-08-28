@@ -1,6 +1,6 @@
 const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_URL ||
-  'https://edgar-space-git-main-4nt.vercel.app/api';
+  'https://edgar-space.vercel.app/api';
 
 /**
  * Standard API fetch wrapper with cookie credentials and JSON handling

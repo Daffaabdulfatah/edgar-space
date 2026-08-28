@@ -13,7 +13,7 @@ export const revalidate = 0;
 async function getInitialHomepageData() {
   const API_BASE =
     process.env.NEXT_PUBLIC_API_URL ||
-    'https://edgar-space-git-main-4nt.vercel.app/api';
+    'https://edgar-space.vercel.app/api';
 
   try {
     const [catRes, prodRes] = await Promise.all([
