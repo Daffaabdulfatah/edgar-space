@@ -65,30 +65,18 @@ export async function fetchApi(endpoint, options = {}) {
  */
 export function getImageUrl(path, slug) {
   if (!path || path === 'null' || path === 'undefined') {
-    if (slug) {
-      return `/images/products/${slug}.svg`;
-    }
-
+    if (slug) return `/images/products/${slug}.svg`;
     return '/images/placeholder.svg';
   }
 
-  // External image URL
-  if (
-    path.startsWith('http://') ||
-    path.startsWith('https://')
-  ) {
+  // URL eksternal langsung digunakan
+  if (path.startsWith('http://') || path.startsWith('https://')) {
     return path;
   }
 
-  // Uploaded image
+  // File upload menggunakan URL relatif dari domain website
   if (path.startsWith('/uploads/')) {
-    const serverOrigin =
-      (
-        process.env.NEXT_PUBLIC_API_URL ||
-        'https://edgar-space-git-main-4nt.vercel.app/api'
-      ).replace(/\/api\/?$/, '');
-
-    return `${serverOrigin}${path}`;
+    return path;
   }
 
   return path;
